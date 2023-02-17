@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* 内减模式 */
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #eff3f6;
+        }
+        
+        .box {
+            margin: 80px auto;
+            width: 600px;
+            height: 350px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        
+        .box .left {
+            float: left;
+            width: 300px;
+            height: 350px;
+            border-radius: 5px 0 0 5px;
+            font-size: 12px;
+            font-weight: bold;
+            background-image: linear-gradient(#fff, #3b82ff);
+        }
+        
+        .box .left .logo {
+            width: 200px;
+            margin: 40px auto;
+        }
+        
+        .box .right {
+            float: left;
+            width: 300px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .box .right h3 {
+            padding-bottom: 40px;
+        }
+        
+        .box .right .form {
+            width: 200px;
+            margin: 20px auto;
+        }
+        
+        .box .right .text,
+        .pwd {
+            position: relative;
+            margin-bottom: 10px;
+            width: 200px;
+            height: 30px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .box .right input {
+            width: 170px;
+            height: 25px;
+            border: 0;
+            outline: none;
+        }
+        
+        .eye {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        
+        img input::placeholder {
+            padding-left: 10px;
+            color: #e8e8e8;
+            opacity: 1;
+        }
+        
+        .box .right select {
+            width: 200px;
+            height: 30px;
+            font-size: 14px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .box .right .submit {
+            margin-top: 20px;
+            width: 200px;
+            height: 30px;
+            color: #fff;
+            border-radius: 5px;
+            border-style: none;
+            background-color: #3b82ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">
+            <div class="logo">
+                <img src="image/logo.htm" alt="logo" style="width:60% ; vertical-align: middle;">
+                <span>宿舍管理系统</span>
+                <img src="image/swiper.htm" alt="" style="width:100%;">
+            </div>
+        </div>
+        <div class="right">
+            <div class="form">
+                <h3>用户登录</h3>
+                <form action="#">
+                    <h5>账号</h5>
+                    <div class="text">
+                        <input type="text" placeholder="请输入账号" id="text" />
+                    </div>
+                    <h5>密码</h5>
+                    <div class="pwd">
+                        <input type="password" placeholder="请输入密码" id="pwd" />
+                        <label for="">
+                            <img src="./image/不可见.png" alt="" class="eye" id="eye"/>
+                        </label>
+                    </div>
+
+                    <h5>身份</h5>
+                    <select>
+                            <option selected>请选择身份</option><!--默认显示-->
+                            <option name="student">学生</option>  
+                            <option name="dormmanager">管理员</option>
+                            <option name="admin">系统管理员</option>
+                        </select>
+
+                    <input type="submit" value="登录" class="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        //1.获取事件源
+        var pwd = document.getElementById('pwd');
+        var eye = document.getElementsById('eye');
+        var flag = 0;
+        //2.绑定事件 3.添加事件处理程序
+        eye.onclick = function() {
+            if (flag == 0) {
+                pwd.type = 'text';
+                flag = 1;
+                eye.src = './可见.png';
+            } else {
+                pwd.type = 'password';
+                flag = 0;
+                eye.src = './不可见.png';
+            }
+        }
+    </script>
+</body>
+
+</html>
